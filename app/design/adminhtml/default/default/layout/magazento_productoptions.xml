@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <productoptions_adminhtml_productoptions_index>
+        <reference name="content">
+            <block type="productoptions/adminhtml_productoptions" name="productoptions" />
+        </reference>
+    </productoptions_adminhtml_productoptions_index>
+    <productoptions_adminhtml_productoptions_applyto>
+        <block type="core/text_list" name="root" output="toHtml"> 
+            <block type="productoptions/adminhtml_productoptions_edit_tab_applyto" name="applyto.grid"/>
+            <block type="adminhtml/widget_grid_serializer" name="applyto_grid_serializer">
+                <reference name="applyto_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>applyto.grid</grid_block_name>
+                        <data_callback>getSelectedApplytoProducts</data_callback>
+                        <hidden_input_name>links[applyto]</hidden_input_name>
+                        <reload_param_name>products_applyto</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block> 
+    </productoptions_adminhtml_productoptions_applyto>
+
+    <productoptions_adminhtml_productoptions_applytogrid>
+        <block type="core/text_list" name="root" output="toHtml"> 
+            <block type="productoptions/adminhtml_productoptions_edit_tab_applyto" name="applyto.grid"/>
+        </block> 
+    </productoptions_adminhtml_productoptions_applytogrid>
+    <productoptions_adminhtml_productoptions_options>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="productoptions/adminhtml_productoptions_edit_tab_options" name="tab.options"/>
+        </block>
+    </productoptions_adminhtml_productoptions_options>
+    
+</layout>
